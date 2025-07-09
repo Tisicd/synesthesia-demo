@@ -6,26 +6,6 @@ on:
       - main
 
 jobs:
-  deploy-vercel:
-    name: Deploy to Vercel
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout código
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-
-      - name: Instalar dependencias
-        run: npm install
-
-      - name: Build del proyecto
-        run: npm run build
-
-      - name: Deploy a Vercel
-        run: npx vercel deploy --prod --token=$VERCEL_TOKEN --confirm --scope=$VERCEL_ORG_ID --project=$VERCEL_PROJECT_ID
 
   docker-build:
     name: Build & Push Docker image
